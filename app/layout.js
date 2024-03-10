@@ -1,7 +1,17 @@
-import { Inter } from "next/font/google";
+import {Noto_Serif} from "next/font/google";
 import "./globals.css";
+import Meta from "@/components/meta";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const inter = Inter({ subsets: ["latin"] });
+import Footer from "@/components/footer";
+import {log} from "next/dist/server/typescript/utils";
+
+
+const merriweather = Noto_Serif({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+})
 
 export const metadata = {
   title: "Create Next App",
@@ -11,7 +21,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <Meta />
+      <body className={ merriweather.className }>{ children }
+      </body>
+      {/*<Footer />*/ }
     </html>
   );
 }
